@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+ <head>
+     <title>Vehicle Order Page</title>
+ </head>
+<body>
+
+<h2>BINDU SHIVA SAI SRI LAKSHMI KATTABATTULA orders a car</h2>
+
+<form>
+    <input type="checkbox" id="electric" name="car"   
+      value="electric" >
+    <label for="electric">electric</label></br>
+  
+    <input type="checkbox" id="ac_car" name="car" 
+       value="ac">
+    <label for="ac_car">ac</label></br>
+  
+    <input type="checkbox" id="gps" name="car"   
+       value="gps" >
+    <label for="gps">gps</label></br>
+    <br>
+
+    <input type="button" onclick="orderCar()" value="Order a car">
+  </form>
+
+
+
+<p id="result1">This text will be replaced </p>
+
+<script> 
+  var my_car = {}
+function orderCar (){
+     var electric_car =false
+     var ac_car =false
+     var gps_car=false
+    electric = document.getElementById("electric")
+    ac = document.getElementById("ac_car")
+    gps = document.getElementById("gps")
+   
+    if (electric.checked) {
+        electric_car=true
+    }
+     if ( ac.checked){
+        ac_car=true
+    }
+    if (gps.checked){
+        gps_car=true
+    }
+    my_car={electric  : electric_car, ac  : ac_car, gps  : gps_car}
+
+    output1=document.getElementById("result1").innerHTML="Car Ordered is : "+JSON.stringify(my_car)
+}
+function updateCar() {
+      my_car={}
+        prop=document.getElementById("prop").value
+        val=document.getElementById("val").value
+        my_car[prop]=val
+        my_car=prop+" : "+val
+        output=document.getElementById("result2").innerHTML=JSON.stringify(my_car)
+    }
+</script>
+<br>
+<br>
+<form>
+    <label for="prop">Enter a property</label>
+    <input type ="text" id="prop" name="prop" min=10 max=50 step=2 value="color"> <br>
+
+    <label for="val">Enter a value</label>
+    <input type ="text" id="val" name="val" autofocus> <br>
+
+    <input type="button" onclick="updateCar()" value="Update the car">
+</form>
+
+
+<p id="result2">This text will be replaced </p>
+
+</body>
+</html> 
