@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Html javascript page </title>
+    </head>
+ 
+<body>
+<h1>Pass phrase by BINDU SHIVA SAI SRI LAKSHMI KATTABATTULA</h1>
+<h2>Getting input</h2>
+
+<form>
+    <label for="secret_phrase">Enter the secret phrase </label>
+    <input type ="password" id="secret_phrase" name="secret_phrase" value="Let me in"> <br>
+
+    <label for="check_phrase">Enter a phrase </label>
+    <input type ="text" id="check_phrase" name="check_phrase" autofocus> <br>
+
+    <input type="button" onclick="processPhrase()" value="Check the phrase">
+</form>
+
+
+<p id="result">This text will be replaced </p>
+
+<script> 
+var correct = 0;
+var wrong = 0;
+
+function processPhrase(){
+    console.log("Getting form values")
+    secret_phrase = document.getElementById("secret_phrase").value
+    check_phrase = document.getElementById("check_phrase").value
+    
+    
+    out = document.getElementById("result")
+    if(secret_phrase == check_phrase){
+        correct += 1
+        alert("Access allowed.")
+        out.innerHTML = "Correct Count: " + correct
+    } else {
+        wrong +=1
+        alert("Access denied.")
+        out.innerHTML = "Wrong Count: " + wrong
+    }
+}
+</script>
+
+<div class="container" >
+    <img src="kangaroo.jpg" height="200" width="200" onclick="newImage()" id="image">
+    <script>
+        var usingImage=1;
+          function newImage(){
+            
+              switch (usingImage) {
+                  case 1:
+                     document.getElementById("image").src="tiger.jpg";
+                      usingImage=2;
+                      break;
+                  case 2:
+                  document.getElementById("image").src="tortoise.jpg";
+                      usingImage=3;
+                      break;
+                  case 3:
+                  document.getElementById("image").src="kangaroo.jpg";
+                      usingImage=1;
+                      break;
+                  
+              }
+      
+          }
+      </script>
+</div>
+
+
+
+</body>
+</html> 
