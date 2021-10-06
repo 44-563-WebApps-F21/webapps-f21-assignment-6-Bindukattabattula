@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+ <head>
+     <title>Lekkala page</title>
+ </head>
+<body>
+
+<h2>BINDU SHIVA SAI SRI LAKSHMI KATTABATTULA Computes</h2>
+
+<form>
+    <label for="form_base">Enter a base</label>
+    <input type="number" id="form_base" name="form_base" value=10><br>
+
+    <label for="form_exponent">Enter an exponent</label>
+    <input type="number" id="form_exponent" name="form_exponent" value=2><br>
+
+    <input type="button" onclick="powers()" value="Compute">
+</form>
+
+<p id="result1">This text will be replaced </p>
+
+<script> 
+
+function powers(){
+    ba=document.getElementById("form_base").value
+    exp=document.getElementById("form_exponent").value
+    let result="";
+    for (let i = 1; i <= exp;i++) {
+       
+       result += Math.pow(ba,i) + " "
+          }
+    output=document.getElementById("result1").innerHTML="Powers of  "+ba+" are :"+result
+   
+}
+
+function processRadio() {
+        bas=document.getElementById("form_base").value
+    expo=document.getElementById("form_exponent").value
+    addit = document.getElementById("addition").checked
+    subtract = document.getElementById("subtraction").checked
+    multi = document.getElementById("multiplicate").checked
+    divis = document.getElementById("division").checked
+    output2=document.getElementById("result2")
+    if (addit == true){
+        result= +bas + +expo
+    }
+    else if ( subtract == true){
+        result= bas - expo
+    }
+    else if (multi == true){
+       result= bas * expo
+    }
+    else if (divis == true){
+        result= bas / expo
+    }
+    output2.innerHTML="The Result is : "+result
+
+      }
+</script>
+<br>
+<form>
+    <input type="radio" id="addition" name="Lekkalu" value="plus"   
+      checked >
+    <label for="addition">+</label></br>
+  
+    <input type="radio" id="subtraction" name="Lekkalu" 
+       value="minus">
+    <label for="subtraction">-</label></br>
+  
+    <input type="radio" id="multiplicate" name="Lekkalu"   
+       value="times">
+    <label for="multiplicate">*</label></br>
+
+    <input type="radio" id="division" name="Lekkalu"   
+    value="divide">
+ <label for="division">/</label></br>
+
+    <input type="button" onclick="processRadio()" value="Calculate the value">
+  </form>
+  <p id="result2">This text will be replaced</p>
+
+  
+
+
+</body>
+</html> 
